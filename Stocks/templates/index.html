@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prediction</title>
+    <!-- Add the following line to include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-cover bg-center min-h-screen flex items-center justify-center" style="background-image: url('{{ url_for('static', filename='stonks.jpg') }}');">
+    <div class="container mx-auto p-4 flex justify-center items-center h-screen">
+        <form action="/predict" method="post" class="bg-gray-800 bg-opacity-75 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md">
+            <h1 class="text-3xl font-bold mb-6 text-center text-white">Stock Prediction</h1>
+            <div class="mb-4">
+                <label for="stock_symbol" class="block text-gray-300 text-sm font-bold mb-2">Stock Symbol:</label>
+                <input type="text" id="stock_symbol" name="stock_symbol" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-700">
+            </div>
+            <div class="mb-4">
+                <label for="start_date" class="block text-gray-300 text-sm font-bold mb-2">Start Date (YYYY-MM-DD):</label>
+                <input type="text" id="start_date" name="start_date" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-700">
+            </div>
+            <div class="mb-4">
+                <label for="end_date" class="block text-gray-300 text-sm font-bold mb-2">End Date (YYYY-MM-DD):</label>
+                <input type="text" id="end_date" name="end_date" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-700">
+            </div>
+            <div class="mb-4">
+                <label for="days_to_predict" class="block text-gray-300 text-sm font-bold mb-2">Days to Predict:</label>
+                <input type="number" id="days_to_predict" name="days_to_predict" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-700">
+            </div>
+            <div class="flex items-center justify-center mt-6">
+                <input type="submit" value="Predict"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
